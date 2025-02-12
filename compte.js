@@ -94,3 +94,21 @@ function email_verify(email) {
 function password_verify(passeword) {
     return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/.test(passeword);
 }
+// Déclarez le tableau qui contiendra les éléments du panier
+let cart = [];
+
+// Définissez la fonction addToCart qui ajoute un élément au panier
+function addToCart(element) {
+  // Récupérez l'objet du produit en utilisant les informations disponibles dans le DOM
+  const product = {
+    image: element.parentElement.querySelector('.product-img').src,
+    title: element.parentElement.querySelector('.product-title').textContent,
+    price: element.parentElement.querySelector('.product-price').textContent
+  };
+
+  // Ajoutez l'objet du produit au tableau cart
+  cart.push(product);
+
+  // Affichez les éléments du panier dans le tableau
+  displayCart();
+}
